@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#description: system details
+
+echo "+++About this machine:"
+
+echo "Hostname: $(hostname)"
+echo "Date: $(date)"
+echo "Kernel: $(uname -r)"
+echo "CPU: $(echo "CPU: $(grep -m1 'model name' /proc/cpuinfo | cut -d: -f2 | sed 's/^ //') | vCPUs: $(nproc)")"
+echo "RAM: $(free -h | awk '/Mem:/ {printf "RAM: %s used / %s avail\n", $3, $7}')"
+echo "IP: $(hostname -I)"
